@@ -1,81 +1,127 @@
-# Black-box-iot-system
-# 🚀 ESP32-Based IoT Black Box System
+# 🚨 ESP32-Based IoT Black Box System
 
-This project is a **smart black box** system built using an **ESP32** microcontroller, designed for drones, rockets, and CubeSat prototype testing. It detects critical events like **abnormal temperature, shock, or vibration** using onboard sensors and gives real-time alerts via an **OLED display, LED, and buzzer**.
-
-## 🎯 Objective
-
-To develop a compact monitoring system that logs and alerts critical data such as:
-- Sudden acceleration (jerks, crashes)
-- High temperature
-- Status visibility on OLED
-- Alerts via LED and buzzer
-
-This system can be integrated into experimental aerospace or robotic devices for **safety diagnostics**.
+This project implements a lightweight **IoT Black Box** system using the **ESP32** microcontroller. It is designed for **drones, rocketry, or CubeSat** experimental systems where real-time environmental and motion monitoring is essential.
 
 ---
 
-## 🔧 Hardware Components
+## 📦 System Overview
 
-| Component           | Description                        |
-|---------------------|------------------------------------|
-| ESP32 Dev Module    | Main microcontroller               |
-| DHT22               | Temperature & Humidity sensor      |
-| MPU6050             | Accelerometer and Gyroscope        |
-| SSD1306 OLED        | 128x64 OLED Display (I2C)          |
-| LED + Buzzer        | Visual and audio alerts            |
-| Optional (Extendable)| BMP390 (Pressure), NEO-6M (GPS)  |
+This IoT system continuously monitors:
+
+- 🌡️ **Temperature** and **Humidity** using a DHT22 sensor  
+- 📈 **Acceleration and movement** using MPU6050 IMU  
+- 📺 Displays real-time data on an OLED  
+- 🔔 Raises **alerts** using a **buzzer** and **LED** on threshold breaches
 
 ---
 
-## 🖥️ Features
+## 🎯 Purpose
 
-- Displays **temperature**, **humidity**, and **acceleration (X/Y)** values
-- Alerts if:
-  - Temperature > 40°C
-  - Sudden motion detected (acceleration > threshold)
-- OLED display shows real-time status: `ALERT` or `NORMAL`
-- Modular design (future support for GPS, pressure sensors)
+- ✅ Acts as a **miniature black box** for test flights and lab payloads  
+- ✅ Provides **live readings** on environment and motion  
+- ✅ Gives **visual and audio alerts** on critical thresholds  
+- ✅ Helps in **diagnostics and safety validation** during field testing
 
 ---
 
-## 📷 Wokwi Simulation
+## 🌍 Importance
 
-🔗 [Click to Open Simulation](https://wokwi.com/projects/437651755421167617)
+- 🛰️ **Essential for Experimental Space Hardware**  
+   Real-time diagnostics for CubeSat or drone safety testing.
 
-No hardware? No problem — test the full system using Wokwi's online simulator!
+- 🌡️ **Environmental Monitoring**  
+   Useful in payload tests, lab simulations, and harsh conditions.
 
----
+- 📉 **Impact/Crash Detection**  
+   Detects strong jerks, indicating falls or crashes.
 
-## 📦 Installation
-
-1. Open the [Wokwi link](https://wokwi.com/projects/437651755421167617)
-2. Modify code if needed and test using virtual components
-3. If using locally:
-   - Install libraries: `Adafruit_SSD1306`, `Adafruit_MPU6050`, `Adafruit_Sensor`, `DHT`
-   - Flash to ESP32 via Arduino IDE or PlatformIO
+- ♻️ **Reusable & Extendable**  
+   Easily add GPS, altitude (BMP390), or SD logging features.
 
 ---
 
-## 💡 Future Enhancements
+## ⚙️ Hardware Used
 
-- Add SD card support for data logging
-- Add GPS module (NEO-6M) for location tracking
-- Use LoRa or WiFi to send alerts remotely
-- Integrate BMP390 for altitude detection
+| Component          | Role                              |
+|-------------------|-----------------------------------|
+| **ESP32 Dev Board**| Main microcontroller               |
+| **DHT22**          | Temperature & Humidity sensor      |
+| **MPU6050**        | Accelerometer + Gyroscope          |
+| **SSD1306 OLED**   | Live data display (I2C)            |
+| **LED + Buzzer**   | Alert indicators                   |
+| Optional           | BMP390 (Altitude), GPS NEO-6M      |
 
 ---
 
-## 👩‍🚀 About the Project
+## 🔔 Alert Conditions
 
-- 👨‍💻 Intern: [Your Name]
-- 🛰️ Internship: India Space Lab Summer Internship 2025
-- 🧪 Category: Embedded Systems, IoT, Aerospace
+The system raises alerts (LED & Buzzer ON) when:
+- Temperature > **40°C**
+- Acceleration on X or Y axis > **±10 m/s²**
+
+---
+
+## 🖥️ Simulation
+
+🔗 **Run on Wokwi**:  
+👉 [Click to Open Simulation](https://wokwi.com/projects/437651755421167617)
+
+No hardware? No problem! Use Wokwi to simulate and test this system online.
+
+---
+
+## 🚀 Features
+
+- Real-time data on:
+  - Temperature (°C)
+  - Humidity (%)
+  - Acceleration (X and Y axes)
+- OLED shows `ALERT` or `NORMAL` status
+- LED and Buzzer activate during abnormal conditions
+- Fully modular – sensors can be added or replaced
+
+---
+
+## 🛠️ Setup Instructions
+
+### ✅ On Wokwi
+1. Open the simulation link above
+2. Click **"Start Simulation"**
+3. View outputs on the OLED and serial monitor
+
+### 🖥️ On Real Hardware
+1. Install required Arduino libraries:
+   - `Adafruit_SSD1306`
+   - `Adafruit_GFX`
+   - `Adafruit_MPU6050`
+   - `Adafruit_Sensor`
+   - `DHT sensor library`
+2. Flash code to ESP32 via Arduino IDE
+3. Connect sensors as per your schematic
+4. Power on and observe the behavior
+
+---
+
+## 💡 Future Ideas
+
+- 🔍 Add **GPS (NEO-6M)** for location tracking  
+- 💾 Log data on **SD card**  
+- 📶 Send alerts via **Wi-Fi / LoRa**  
+- 🧭 Add **BMP390** for altitude monitoring
+
+---
+
+## 👩‍🚀 Project Credits
+
+- 👩‍💻 **Intern**: Sindhu Yesilanka  
+- 🛰️ **Internship**: India Space Lab – Summer Internship 2025  
+- 🔬 **Domain**: Embedded Systems, IoT, Aerospace  
 
 ---
 
 ## 📜 License
 
-This project is open source and free to use under the [MIT License](LICENSE).
+This project is open-source under the [MIT License](LICENSE)
 
+---
 
